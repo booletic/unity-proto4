@@ -32,13 +32,12 @@ public class PlayerControllerX : MonoBehaviour
         // Add boost to player on holding space key
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerRb.AddForce(focalPoint.transform.forward * verticalInput * speed * Time.deltaTime, ForceMode.VelocityChange);
+            playerRb.AddForce(focalPoint.transform.forward * verticalInput * speed * Time.deltaTime, ForceMode.Impulse);
         }
 
         // Show particles when magnitude is high
         if (playerRb.velocity.magnitude >= 10)
         {
-            smokeParticle.transform.position = transform.position;
             smokeParticle.Play();
         }
         
